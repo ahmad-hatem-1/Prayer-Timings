@@ -34,27 +34,34 @@ function request(theCity = "cairo") {
     } else {
         city.innerHTML = "الفيوم"
     }
-    axios.get(`http://api.aladhan.com/v1/calendarByCity/2024/6?city=${theCity}&country=EG&method=5`)
-        .then(Response => {
-            date_p.innerHTML = `${Response.data.data[day - 1].date.hijri.weekday.ar}
-        ${+(Response.data.data[day - 1].date.hijri.day) + 1}
-        ${Response.data.data[day - 1].date.hijri.month.ar}
-        ${(Response.data.data[day - 1].date.hijri.year)} هجرياً
+    fetch(`http://api.aladhan.com/v1/calendarByCity/2024/6?city=${theCity}&country=EG&method=5`)
+    .then(Response=>{
+        if (Response.ok){
+            return Response.json() 
+        }else{
+            alert("")
+        }
+    }).then(Response=>{
+        console.log(Response)
+        date_p.innerHTML = `${Response.data[day - 1].date.hijri.weekday.ar}
+        ${+(Response.data[day - 1].date.hijri.day) + 1}
+        ${Response.data[day - 1].date.hijri.month.ar}
+        ${(Response.data[day - 1].date.hijri.year)} هجرياً
         `
             date_melad.innerHTML = `
-        ${Response.data.data[day - 1].date.gregorian.date}        
+        ${Response.data[day - 1].date.gregorian.date}        
         `
-            let Asr_t = Response.data.data[day - 1].timings.Asr.replace("(EEST)", "")
-            // console.log(convertTO_12h(Asr_t))
+            let Asr_t = Response.data[day - 1].timings.Asr.replace("(EEST)", "")
             convertTO_12h(Asr_t)
-            Sunrise.innerHTML = `${(Response.data.data[day - 1].timings.Sunrise.replace("(EEST)", ""))} ص`
-            faj.innerHTML = `${(Response.data.data[day - 1].timings.Fajr.replace("(EEST)", ""))} ص`
-            Dhuhr.innerHTML = `${(Response.data.data[day - 1].timings.Dhuhr.replace("(EEST)", ""))} ص`
-            Asr.innerHTML = `${convertTO_12h(Response.data.data[day - 1].timings.Asr.replace("(EEST)", ""))}`
-            Maghrib.innerHTML = `${convertTO_12h((Response.data.data[day - 1].timings.Maghrib.replace("(EEST)", "")))}`
-            Isha.innerHTML = `${convertTO_12h((Response.data.data[day - 1].timings.Isha.replace("(EEST)", "")))}`
-            console.log(Response.data.data[15].timings)
-        }).catch(error => alert("api" + error))
+            Sunrise.innerHTML = `${(Response.data[day - 1].timings.Sunrise.replace("(EEST)", ""))} ص`
+            faj.innerHTML = `${(Response.data[day - 1].timings.Fajr.replace("(EEST)", ""))} ص`
+            Dhuhr.innerHTML = `${(Response.data[day - 1].timings.Dhuhr.replace("(EEST)", ""))} ص`
+            Asr.innerHTML = `${convertTO_12h(Response.data[day - 1].timings.Asr.replace("(EEST)", ""))}`
+            Maghrib.innerHTML = `${convertTO_12h((Response.data[day - 1].timings.Maghrib.replace("(EEST)", "")))}`
+            Isha.innerHTML = `${convertTO_12h((Response.data[day - 1].timings.Isha.replace("(EEST)", "")))}`
+            // console.log(Response.data.data[15].timings)
+        
+    })
 }
 request()
 
