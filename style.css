@@ -1,0 +1,296 @@
+* {
+    font-family: "Tajawal", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+
+.content {
+    max-width: 100%;
+    height: 100vh;
+    /* height: fit-content; */
+    /* background-color: #000; */
+    background-image: linear-gradient(20deg, #1e0254, #1e0254);
+    block-size: cover;
+    background: rgb(27, 2, 80);
+    background: linear-gradient(22deg, rgba(27, 2, 80, 1) 0%, rgba(10, 0, 34, 1) 100%);
+    background-size: cover;
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+body {
+    /* overflow: hidden; */
+}
+
+
+.content h1 {
+    color: white;
+    font-size: 150px;
+    font-weight: 400;
+
+}
+
+.content p {
+    color: #fff;
+    font-size: 50px;
+    font-weight: lighter;
+}
+
+.hr {
+    margin: 15px auto 0 auto;
+    width: 90%;
+    background-color: #1f0353;
+    height: 5px;
+}
+
+.center {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    justify-content: center;
+    gap: 15px;
+}
+
+.sl {
+    background-color: #fff;
+    height: 200px;
+    position: relative;
+    margin-top: 30px;
+}
+.sl:last-child{
+    margin-bottom: 30px;
+}
+
+.sl h2 {
+    background-color: #ffffff;
+    width: 100%;
+    background: rgb(84, 19, 223);
+    background: linear-gradient(77deg, rgba(84, 19, 223, 1) 0%, rgba(104, 37, 197, 1) 100%);
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+}
+.sl img {
+    width: 50px;
+    height: 50px;
+
+}
+.sl span {
+    position: absolute;
+    top: 68%;
+    right: 74%;
+    transform: translate(50%, -50%);
+    font-size: 50px;
+    font-weight: 500;
+    width: 100%;
+    text-wrap: nowrap;
+}
+
+.select {
+    color: #fff;
+    margin: 50px auto 0 auto;
+    width: 250px;
+    position: relative;
+}
+
+@media (max-width:768px) {
+
+    .content {
+        padding-top: 20px;
+        height: fit-content;
+    }
+
+    .content h1 {
+        font-size: 80px;
+
+    }
+
+    .content p {
+        font-size: 30px;
+    }
+
+    .center {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+        justify-content: center;
+        gap: 0px;
+    }
+
+    .sl {
+        background-color: #fff;
+        height: 150px;
+        position: relative;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .sl span {
+
+        position: absolute;
+        top: 70%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        font-size: 50px;
+        font-weight: 500;
+    }
+
+    .center {
+        order: 1;
+    }
+
+    .select {
+        order: 0;
+        height: 100px;
+    }
+}
+
+.select select {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    border: none;
+    height: 45px;
+    width: 100%;
+    height: 50px;
+
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 18px;
+
+}
+
+.select select:focus {
+    background-color: #000;
+}
+
+#date_melad {
+    color: transparent;
+    background: linear-gradient(77deg, rgb(223, 19, 19) 0%, rgb(235, 235, 235) 100%);
+    font-weight: 400;
+    background-clip: text;
+    display: block;
+}
+
+.slide-left {
+    -webkit-animation: slide-left .5s cubic-bezier(.25, .46, .45, .94) both;
+    animation: slide-left .5s cubic-bezier(.25, .46, .45, .94) both
+}
+
+@-webkit-keyframes slide-left {
+    0% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px)
+    }
+
+    100% {
+        -webkit-transform: translateX(-15px);
+        transform: translateX(-15px)
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px)
+    }
+
+    100% {
+        -webkit-transform: translateX(-15px);
+        transform: translateX(-15px)
+    }
+}
+
+.scale-up-center {
+    -webkit-animation: scale-up-center .4s 1s cubic-bezier(.39, .575, .565, 1.000) both;
+    animation: scale-up-center 1s .5s cubic-bezier(.39, .575, .565, 1.000) both
+}
+
+@-webkit-keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0)
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0)
+    }
+    
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+.slide-top {
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+    animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+}
+
+@-webkit-keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+        opacity: 0;
+        transform: translateY(0);
+        
+        
+    }
+
+    100% {
+        -webkit-transform: translateY(-100px);
+        opacity: 1;
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(100px);
+        opacity: 0;
+        transform: translateY(100px)
+    }
+    
+    100% {
+        -webkit-transform: translateY(0px);
+        opacity: 1;
+        transform: translateY(0px)
+    }
+}
+        @media (max-width:768px) {
+            .slide-top {
+                -webkit-animation: slide-top 0.5s 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+                animation: slide-top 0.5s 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+                animation-delay: .5s;
+            }
+            
+            .scale-up-center {
+                -webkit-animation: scale-up-center 1s  cubic-bezier(.39, .575, .565, 1.000) both;
+                animation: scale-up-center 1s cubic-bezier(.39, .575, .565, 1.000) both ;
+                animation-delay: 1s;
+            }
+        
+        }
+        @media (min-width:768px) and (max-width:1100px) {
+            .content {
+                height: fit-content;
+            }
+        }
